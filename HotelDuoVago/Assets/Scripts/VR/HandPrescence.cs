@@ -5,15 +5,17 @@ using UnityEngine.XR;
 
 public class HandPrescence : MonoBehaviour
 {
+    public InputDeviceCharacteristics type;
+
     private InputDevice targetDevice;
 
-    private bool rightTrigger = false;
+    private bool rightTrigger, rightGrip;
 
     // Start is called before the first frame update
     void Start()
     {
         List<InputDevice> devices = new List<InputDevice>();
-        InputDeviceCharacteristics rightControllerCharacteristics = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
+        InputDeviceCharacteristics rightControllerCharacteristics = type | InputDeviceCharacteristics.Controller;
         InputDevices.GetDevicesWithCharacteristics(rightControllerCharacteristics, devices);
 
         if(devices.Count > 0)
@@ -27,9 +29,16 @@ public class HandPrescence : MonoBehaviour
     void Update()
     {
         targetDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerPressed);
+        targetDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripPressed);
 
         rightTrigger = triggerPressed;
+        rightGrip = gripPressed;
 
+    }
+
+    public bool RightGripPressed()
+    {
+        return rightGrip;
     }
 
     public bool RightTriggerPressed()
