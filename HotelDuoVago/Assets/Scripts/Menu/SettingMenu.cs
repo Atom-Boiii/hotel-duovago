@@ -40,4 +40,9 @@ public class SettingMenu : MonoBehaviour
         audioMixer.SetFloat("Music Volume", volume);
         textMusic.text = Mathf.Round(volume) + volumeBalancer + "%";
     }
+
+    public void SetQuality(int quality)
+    {
+        QualitySettings.SetQualityLevel(quality);
+    }
 }
