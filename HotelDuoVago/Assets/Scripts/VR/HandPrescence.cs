@@ -9,7 +9,7 @@ public class HandPrescence : MonoBehaviour
 
     private InputDevice targetDevice;
 
-    private bool rightTrigger, rightGrip;
+    private bool rightTrigger, hasGripPressed, hasPrimaryPressed;
 
     // Start is called before the first frame update
     void Start()
@@ -30,19 +30,25 @@ public class HandPrescence : MonoBehaviour
     {
         targetDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerPressed);
         targetDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripPressed);
+        targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryPressed);
 
         rightTrigger = triggerPressed;
-        rightGrip = gripPressed;
-
+        hasGripPressed = gripPressed;
+        hasPrimaryPressed = primaryPressed;
     }
 
-    public bool RightGripPressed()
+    public bool HasGripPressed()
     {
-        return rightGrip;
+        return hasGripPressed;
     }
 
-    public bool RightTriggerPressed()
+    public bool HasTriggerPressed()
     {
         return rightTrigger;
+    }
+
+    public bool HasPrimaryPressed()
+    {
+        return hasPrimaryPressed;
     }
 }

@@ -12,7 +12,14 @@ public class VRSphereTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        prescence = FindObjectOfType<HandPrescence>();
+        HandPrescence[] prensences = FindObjectsOfType<HandPrescence>();
+        foreach (var item in prensences)
+        {
+            if(item.type == UnityEngine.XR.InputDeviceCharacteristics.Right)
+            {
+                prescence = item;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -20,7 +27,7 @@ public class VRSphereTest : MonoBehaviour
     {
         if (isGrabbed)
         {
-            if (prescence.RightTriggerPressed())
+            if (prescence.HasTriggerPressed())
             {
                 GetComponent<Renderer>().material.color = Color.green;
             }

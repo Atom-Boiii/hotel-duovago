@@ -6,6 +6,8 @@ public class VrHands : MonoBehaviour
 {
     private Animator anims;
 
+    public GameObject hand;
+
     private HandPrescence prescence;
 
     // Start is called before the first frame update
@@ -18,6 +20,11 @@ public class VrHands : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anims.SetBool("Grab", prescence.RightGripPressed());
+        anims.SetBool("Grab", prescence.HasGripPressed());
+    }
+
+    public void SetHand(bool state)
+    {
+        hand.SetActive(state);
     }
 }
