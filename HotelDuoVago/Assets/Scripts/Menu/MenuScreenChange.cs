@@ -9,7 +9,12 @@ public class MenuScreenChange : MonoBehaviour
 
     public void StartButton()
     {
-        
+
+    }
+
+    public void ReturnToMenuButton()
+    {
+
     }
 
     public void ExitButton()

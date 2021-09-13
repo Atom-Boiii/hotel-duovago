@@ -7,6 +7,8 @@ using TMPro;
 
 public class SettingMenu : MonoBehaviour
 {
+    public IngameMenu ingameMenu;
+
     public AudioMixer audioMixer;
     public TextMeshProUGUI textMaster;
     public TextMeshProUGUI textSFX;
@@ -27,18 +29,27 @@ public class SettingMenu : MonoBehaviour
     {
         audioMixer.SetFloat("Master Volume", volume);
         textMaster.text = Mathf.Round(volume) + volumeBalancer + "%";
+        ingameMenu.textMaster.text = Mathf.Round(volume) + volumeBalancer + "%";
+        volumeSliderMaster.value = volume;
+        ingameMenu.volumeSliderMaster.value = volume;
     }
 
     public void SetSFXVolume(float volume)
     {
         audioMixer.SetFloat("SFX Volume", volume);
         textSFX.text = Mathf.Round(volume) + volumeBalancer + "%";
+        ingameMenu.textSFX.text = Mathf.Round(volume) + volumeBalancer + "%";
+        volumeSliderSFX.value = volume;
+        ingameMenu.volumeSliderSFX.value = volume;
     }
 
     public void SetMusicVolume(float volume)
     {
         audioMixer.SetFloat("Music Volume", volume);
         textMusic.text = Mathf.Round(volume) + volumeBalancer + "%";
+        ingameMenu.textMusic.text = Mathf.Round(volume) + volumeBalancer + "%";
+        volumeSliderMusic.value = volume;
+        ingameMenu.volumeSliderMusic.value = volume;
     }
 
     public void SetQuality(int quality)
