@@ -6,7 +6,7 @@ public class ActivateFun : MonoBehaviour
 {
     public GameObject fun;
 
-    public void MouseHoverOn()
+    public void ActiveFun()
     {
         fun.GetComponent<IncreaseFun>().ActivateCoroutine();
     }
