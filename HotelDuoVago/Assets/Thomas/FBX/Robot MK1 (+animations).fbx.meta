@@ -9,7 +9,12 @@ ModelImporter:
   - first:
       74: -5669195171080744809
     second: Armature|Arm forward movement
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 6fc8516424e64da4591fac8bbad91b24, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
