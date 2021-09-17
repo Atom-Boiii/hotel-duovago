@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerLocation : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Vector3 player;
+
+    public void Start()
     {
-        
+        SetPlayerPosition();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetPlayerPosition()
     {
-        
+        player = gameObject.transform.position;
     }
 }

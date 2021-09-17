@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+[System.Serializable]
+public class Conversation : MonoBehaviour
+{
+    public string robotName;
+
+    [TextArea(3, 10)]
+    public string[] robotDialogueText;
+
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI sentenceText;
+    public Canvas canvas;
+
+    public void Start()
+    {
+        if(canvas != null)
+        {
+            canvas = gameObject.transform.Find("Robot Canvas").GetComponent<Canvas>();
+
+            canvas.gameObject.SetActive(false);
+        }
+        if (nameText != null)
+        {
+            nameText = canvas.gameObject.transform.Find("Name").GetComponent<TextMeshProUGUI>();
+        }
+        if (sentenceText != null)
+        {
+            sentenceText = canvas.gameObject.transform.Find("Sentence").GetComponent<TextMeshProUGUI>();
+        }
+
+    }
+}

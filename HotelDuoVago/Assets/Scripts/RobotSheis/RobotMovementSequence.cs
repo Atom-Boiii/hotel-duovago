@@ -41,6 +41,6 @@ public class RobotMovementSequence : MonoBehaviour
 
     void EndPath()
     {
-        print("call");
+        GetComponent<DistanceToPlayer>().StartConversation();
     }
 }
