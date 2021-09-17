@@ -6,6 +6,7 @@ public class RobotMovementSequence : MonoBehaviour
 {
     private Transform target;
     public float speed;
+    private bool startTalk = false;
 
     private int wavepointIndex;
 
@@ -13,6 +14,7 @@ public class RobotMovementSequence : MonoBehaviour
     void Start()
     {
         target = RobotMovement.checkPoints[0];
+        startTalk = false;
     }
 
     // Update is called once per frame
@@ -37,10 +39,23 @@ public class RobotMovementSequence : MonoBehaviour
 
         wavepointIndex++;
         target = RobotMovement.checkPoints[wavepointIndex];
+        transform.LookAt(target);
     }
 
     void EndPath()
     {
+        if (!startTalk)
+        {
+            StartCoroutine(StartConversation());
+        }
+
+        startTalk = true;
+    }
+
+    private IEnumerator StartConversation()
+    {
+        yield return new WaitForSeconds(1f);
+
         GetComponent<DistanceToPlayer>().StartConversation();
     }
 }
