@@ -17,20 +17,9 @@ public class Conversation : MonoBehaviour
 
     public void Start()
     {
-        if(canvas != null)
-        {
-            canvas = gameObject.transform.Find("Robot Canvas").GetComponent<Canvas>();
-
-            canvas.gameObject.SetActive(false);
-        }
-        if (nameText != null)
-        {
-            nameText = canvas.gameObject.transform.Find("Name").GetComponent<TextMeshProUGUI>();
-        }
-        if (sentenceText != null)
-        {
-            sentenceText = canvas.gameObject.transform.Find("Sentence").GetComponent<TextMeshProUGUI>();
-        }
-
+        canvas = gameObject.transform.Find("Robot Canvas").GetComponent<Canvas>();
+        nameText = canvas.gameObject.transform.Find("Name").GetComponent<TextMeshProUGUI>();
+        sentenceText = canvas.gameObject.transform.Find("Sentence").GetComponent<TextMeshProUGUI>();
+        canvas.gameObject.SetActive(false);
     }
 }

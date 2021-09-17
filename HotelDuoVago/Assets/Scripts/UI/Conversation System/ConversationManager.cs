@@ -9,6 +9,7 @@ public class ConversationManager : MonoBehaviour
     private Conversation conversation;
 
     public float sentenceWaitTime;
+    public float textSpeed;
 
     public void Start()
     {
@@ -48,13 +49,27 @@ public class ConversationManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        if(conversation.sentenceText != null)
+        if (conversation.sentenceText != null)
         {
             conversation.sentenceText.text = sentence;
         }
         StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence, textSpeed));
+    }
+
+    IEnumerator TypeSentence(string sentence, float time)
+    {
+        conversation.sentenceText.text = "";
+
+        foreach (char letter in sentence.ToCharArray())
+        {
+            conversation.sentenceText.text += letter;
+            yield return new WaitForSeconds(time);
+        }
+
         StartCoroutine(WaitForNextSentence(sentenceWaitTime));
     }
+
 
     IEnumerator WaitForNextSentence(float time)
     {
@@ -63,23 +78,12 @@ public class ConversationManager : MonoBehaviour
         DisplayNextSentence();
     }
 
-    /*
-    IEnumerator TypeSentence(string sentence)
-    {
-        foreach (char letter in sentence.ToCharArray())
-        {
-            dialogueText.text += letter;
-            yield return null;
-        }
-    }
-    */
-
     public void EndConversation()
     {
         if(conversation.canvas != null)
         {
             conversation.canvas.gameObject.SetActive(false);
         }
-        //Debug.Log("End of Conversation With: " + conversation.robotName);
+        Debug.Log("End of Conversation With: " + conversation.robotName);
     }
 }
