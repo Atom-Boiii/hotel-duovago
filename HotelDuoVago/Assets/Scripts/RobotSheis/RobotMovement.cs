@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class RobotMovement : MonoBehaviour
 {
-    public static Transform[] checkPoints;
+    public int checkPointID;
+
+    public Transform[] checkPoints;
 
     private void Awake()
     {

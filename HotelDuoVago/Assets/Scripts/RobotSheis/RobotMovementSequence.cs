@@ -4,42 +4,69 @@ using UnityEngine;
 
 public class RobotMovementSequence : MonoBehaviour
 {
+    public int robotCheckPoints;
+
     private Transform target;
     public float speed;
     private bool startTalk = false;
+    private bool move;
 
     private int wavepointIndex;
+
+    RobotMovement rm;
 
     // Start is called before the first frame update
     void Start()
     {
-        target = RobotMovement.checkPoints[0];
+        RobotMovement[] movements = FindObjectsOfType<RobotMovement>();
+
+        foreach (var item in movements)
+        {
+            if(robotCheckPoints == item.checkPointID)
+            {
+                rm = item;
+            }
+        }
+
+        target = rm.checkPoints[0];
+
         startTalk = false;
+        move = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-
-        if (Vector3.Distance(transform.position, target.position) <= 0.4f)
+        if (move)
         {
-            GetNextWaypoint();
+            Vector3 dir = target.position - transform.position;
+            transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+
+            if (Vector3.Distance(transform.position, target.position) <= 0.2f)
+            {
+                GetNextWaypoint();
+            }
         }
     }
 
     void GetNextWaypoint()
     {
-        if (wavepointIndex >= RobotMovement.checkPoints.Length - 1)
+        if (wavepointIndex >= rm.checkPoints.Length - 1)
         {
             EndPath();
             return;
         }
 
         wavepointIndex++;
-        target = RobotMovement.checkPoints[wavepointIndex];
-        transform.LookAt(target);
+        target = rm.checkPoints[wavepointIndex];
+
+        //transform.LookAt(target);
+        transform.rotation = target.rotation;
+    }
+
+    void GetPreviousWaypoint()
+    {
+
     }
 
     void EndPath()
@@ -50,6 +77,7 @@ public class RobotMovementSequence : MonoBehaviour
         }
 
         startTalk = true;
+        move = false;
     }
 
     private IEnumerator StartConversation()
