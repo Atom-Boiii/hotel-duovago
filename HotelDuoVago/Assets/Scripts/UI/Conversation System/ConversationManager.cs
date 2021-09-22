@@ -44,6 +44,7 @@ public class ConversationManager : MonoBehaviour
     {
         if (sentences.Count == 0)
         {
+            FindObjectOfType<KeyGrabber>().Init();
             EndConversation();
             return;
         }

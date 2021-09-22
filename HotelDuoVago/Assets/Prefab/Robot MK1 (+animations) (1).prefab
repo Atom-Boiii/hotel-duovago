@@ -153,6 +153,7 @@ Transform:
   m_Children:
   - {fileID: 5334634119332313504}
   - {fileID: 1908125072067959015}
+  - {fileID: 5229649638511675629}
   m_Father: {fileID: 200605529118650603}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -604,6 +605,63 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &7805055576519961208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5229649638511675629}
+  - component: {fileID: 3342923978953688399}
+  - component: {fileID: 6852676631050784039}
+  m_Layer: 0
+  m_Name: GrabCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5229649638511675629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7805055576519961208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.00551, z: 0.00004}
+  m_LocalScale: {x: 0.0029178977, y: 0.0029178977, z: 0.0029178977}
+  m_Children: []
+  m_Father: {fileID: 4948523877097487867}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3342923978953688399
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7805055576519961208}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6852676631050784039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7805055576519961208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8ca69f68ccc8d4fb64282ec5266c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8045135896447161999
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,6 +836,8 @@ GameObject:
   - component: {fileID: 8223836420174298029}
   - component: {fileID: 8223836420174298028}
   - component: {fileID: 8223836420174298031}
+  - component: {fileID: 2197160035071093333}
+  - component: {fileID: 3690090684048728300}
   m_Layer: 0
   m_Name: Robot MK1 (+animations) (1)
   m_TagString: Untagged
@@ -818,7 +878,6 @@ MonoBehaviour:
   robotDialogueText:
   - Hello, i am Kyle.
   - Please give me a Key.
-  - Thank you.
   nameText: {fileID: 0}
   sentenceText: {fileID: 0}
   canvas: {fileID: 0}
@@ -850,3 +909,34 @@ MonoBehaviour:
   robotCheckPoints: 0
   rotationSpeed: 5
   speed: 1
+--- !u!95 &2197160035071093333
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9142736563785271034}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a75024c5974dfa04aba632096be73578, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3690090684048728300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9142736563785271034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 062abac8af0cfb34f8a27ebf1ce97b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
