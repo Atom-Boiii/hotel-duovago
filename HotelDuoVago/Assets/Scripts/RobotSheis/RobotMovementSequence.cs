@@ -5,6 +5,7 @@ using UnityEngine;
 public class RobotMovementSequence : MonoBehaviour
 {
     public int robotCheckPoints;
+    public float rotationSpeed;
 
     private Transform target;
     public float speed;
@@ -47,6 +48,8 @@ public class RobotMovementSequence : MonoBehaviour
                 GetNextWaypoint();
             }
         }
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, Time.deltaTime * rotationSpeed);
     }
 
     void GetNextWaypoint()
@@ -61,7 +64,6 @@ public class RobotMovementSequence : MonoBehaviour
         target = rm.checkPoints[wavepointIndex];
 
         //transform.LookAt(target);
-        transform.rotation = target.rotation;
     }
 
     void GetPreviousWaypoint()

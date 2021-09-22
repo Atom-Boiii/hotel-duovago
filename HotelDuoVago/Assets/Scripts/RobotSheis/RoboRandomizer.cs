@@ -13,7 +13,7 @@ public class RoboRandomizer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        index = Random.Range(0, 2);
+        index = 0;
 
         RobotMovement[] movements = FindObjectsOfType<RobotMovement>();
 

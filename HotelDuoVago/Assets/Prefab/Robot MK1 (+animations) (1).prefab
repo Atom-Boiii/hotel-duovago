@@ -381,4 +381,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotCheckPoints: 0
+  rotationSpeed: 5
   speed: 1
