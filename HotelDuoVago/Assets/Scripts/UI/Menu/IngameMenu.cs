@@ -21,6 +21,8 @@ public class IngameMenu : MonoBehaviour
     public void IngameMenuToggle()
     {
         ingameMenu.SetActive(true);
+
+        GetComponent<MenuScreenChange>().Pause();
     }
 
     public void ActivateToggle()

@@ -5,11 +5,13 @@ using UnityEngine.XR;
 
 public class HandPrescence : MonoBehaviour
 {
+    public IngameMenu igm;
+
     public InputDeviceCharacteristics type;
 
     private InputDevice targetDevice;
 
-    private bool rightTrigger, hasGripPressed, hasPrimaryPressed;
+    private bool rightTrigger, hasGripPressed, hasPrimaryPressed, hasSecondaryPressed;
 
     // Start is called before the first frame update
     void Start()
@@ -31,10 +33,21 @@ public class HandPrescence : MonoBehaviour
         targetDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerPressed);
         targetDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripPressed);
         targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryPressed);
+        targetDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out bool secondaryPressed);
 
         rightTrigger = triggerPressed;
         hasGripPressed = gripPressed;
         hasPrimaryPressed = primaryPressed;
+
+
+        if(type == InputDeviceCharacteristics.Left)
+        {
+            if (secondaryPressed)
+            {
+                FindObjectOfType<TeleportSysterm>().canTP = false;
+                igm.IngameMenuToggle();
+            }
+        }
     }
 
     public bool HasGripPressed()

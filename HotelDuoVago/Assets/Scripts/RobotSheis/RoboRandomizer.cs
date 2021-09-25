@@ -11,7 +11,7 @@ public class RoboRandomizer : MonoBehaviour
     private RobotMovement rm;
 
     // Start is called before the first frame update
-    void Start()
+    public void SpawnBot()
     {
         index = 0;
 

@@ -10,7 +10,7 @@ public class Billboard : MonoBehaviour
 
     public void Start()
     {
-        findRig = GameObject.Find(vrRigName);
+        findRig = Camera.main.gameObject;
         lookAtThis = findRig.transform;
     }
     void LateUpdate()

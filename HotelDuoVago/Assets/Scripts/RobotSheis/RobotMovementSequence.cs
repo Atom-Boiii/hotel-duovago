@@ -49,7 +49,10 @@ public class RobotMovementSequence : MonoBehaviour
             }
         }
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, Time.deltaTime * rotationSpeed);
+        if (move)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, Time.deltaTime * rotationSpeed);
+        }
     }
 
     void GetNextWaypoint()

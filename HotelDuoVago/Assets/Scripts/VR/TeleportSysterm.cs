@@ -8,6 +8,8 @@ public class TeleportSysterm : MonoBehaviour
 
     HandPrescence prescence;
 
+    public bool canTP;
+
     void Start()
     {
         prescence = GetComponent<HandPrescence>();
@@ -16,6 +18,9 @@ public class TeleportSysterm : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        teleportInteractor.SetActive(prescence.HasPrimaryPressed());
+        if (canTP)
+        {
+            teleportInteractor.SetActive(prescence.HasPrimaryPressed());
+        }
     }
 }
