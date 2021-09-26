@@ -20,19 +20,30 @@ public class ConversationManager : MonoBehaviour
     {
         conversation = conv;
         sentences.Clear();
-        if(conversation.canvas != null)
-        {
-            conversation.canvas.gameObject.SetActive(true);
-        }
+        conversation.canvas.gameObject.SetActive(true);
 
         Debug.Log("Starting Conversation With: " + conversation.robotName);
 
-        if(conversation.nameText != null)
+        SetupConversation();
+    }
+
+    public void SetupConversation()
+    {
+        conversation.nameText.text = conversation.robotName;
+        foreach (string sentence in conversation.robotDialogueText)
         {
-            conversation.nameText.text = conversation.robotName;
+            sentences.Enqueue(sentence);
         }
 
-        foreach (string sentence in conversation.robotDialogueText)
+        DisplayNextSentence();
+    }
+
+    public void SetupQuestEndConversation()
+    {
+        sentences.Clear();
+        conversation.canvas.gameObject.SetActive(true);
+
+        foreach (string sentence in conversation.robotEndQuestDialogueText)
         {
             sentences.Enqueue(sentence);
         }
@@ -50,10 +61,12 @@ public class ConversationManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
+
         if (conversation.sentenceText != null)
         {
             conversation.sentenceText.text = sentence;
         }
+
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence, textSpeed));
     }
@@ -71,7 +84,6 @@ public class ConversationManager : MonoBehaviour
         StartCoroutine(WaitForNextSentence(sentenceWaitTime));
     }
 
-
     IEnumerator WaitForNextSentence(float time)
     {
         yield return new WaitForSeconds(time);
@@ -81,10 +93,8 @@ public class ConversationManager : MonoBehaviour
 
     public void EndConversation()
     {
-        if(conversation.canvas != null)
-        {
-            conversation.canvas.gameObject.SetActive(false);
-        }
+        conversation.canvas.gameObject.SetActive(false);
+
         Debug.Log("End of Conversation With: " + conversation.robotName);
     }
 }

@@ -10,6 +10,8 @@ public class Conversation : MonoBehaviour
 
     [TextArea(3, 10)]
     public string[] robotDialogueText;
+    [TextArea(3, 10)]
+    public string[] robotEndQuestDialogueText;
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI sentenceText;
