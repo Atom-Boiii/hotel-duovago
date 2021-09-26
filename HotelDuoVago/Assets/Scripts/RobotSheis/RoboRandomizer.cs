@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class RoboRandomizer : MonoBehaviour
 {
+    public bool runFromStart;
+
     public GameObject robot;
 
     private int index;
 
     private RobotMovement rm;
+
+    private void Start()
+    {
+        if (runFromStart)
+        {
+            SpawnBot();
+        }
+    }
 
     // Start is called before the first frame update
     public void SpawnBot()

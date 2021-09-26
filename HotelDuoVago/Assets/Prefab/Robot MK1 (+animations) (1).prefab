@@ -878,6 +878,8 @@ MonoBehaviour:
   robotDialogueText:
   - Hello, i am Kyle.
   - Please give me a Key.
+  robotEndQuestDialogueText:
+  - Thank you
   nameText: {fileID: 0}
   sentenceText: {fileID: 0}
   canvas: {fileID: 0}

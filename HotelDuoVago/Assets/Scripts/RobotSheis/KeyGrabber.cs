@@ -24,5 +24,18 @@ public class KeyGrabber : MonoBehaviour
     private IEnumerator KeyGrabbed()
     {
         yield return new WaitForSeconds(1f);
+
+        FindObjectOfType<ConversationManager>().SetupQuestEndConversation();
+
+        
+
+        yield return new WaitForSeconds(1f);
+
+        GetComponent<RobotMovementSequence>().StartMovingStairs();
+
+        yield return new WaitForSeconds(1f);
+
+        FindObjectOfType<StartSpawn>().canSpawn = true;
+
     }
 }

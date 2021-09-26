@@ -10,9 +10,12 @@ public class RobotMovementSequence : MonoBehaviour
     private Transform target;
     public float speed;
     private bool startTalk = false;
-    private bool move;
+    public bool move;
+
+    public bool isDone;
 
     private int wavepointIndex;
+
 
     RobotMovement rm;
 
@@ -55,7 +58,7 @@ public class RobotMovementSequence : MonoBehaviour
         }
     }
 
-    void GetNextWaypoint()
+    public void GetNextWaypoint()
     {
         if (wavepointIndex >= rm.checkPoints.Length - 1)
         {
@@ -66,23 +69,47 @@ public class RobotMovementSequence : MonoBehaviour
         wavepointIndex++;
         target = rm.checkPoints[wavepointIndex];
 
-        //transform.LookAt(target);
     }
 
-    void GetPreviousWaypoint()
+    public void StartMovingStairs()
     {
+        wavepointIndex = 0;
 
+        robotCheckPoints = 1;
+
+        RobotMovement[] movements = FindObjectsOfType<RobotMovement>();
+
+        foreach (var item in movements)
+        {
+            if (robotCheckPoints == item.checkPointID)
+            {
+                rm = item;
+            }
+        }
+
+        target = rm.checkPoints[0];
+
+        startTalk = false;
+        move = true;
+        isDone = true;
     }
 
     void EndPath()
     {
-        if (!startTalk)
+        if (!isDone)
         {
-            StartCoroutine(StartConversation());
-        }
+            if (!startTalk)
+            {
+                StartCoroutine(StartConversation());
+            }
 
-        startTalk = true;
-        move = false;
+            startTalk = true;
+            move = false;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private IEnumerator StartConversation()

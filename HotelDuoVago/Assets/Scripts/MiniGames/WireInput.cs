@@ -24,6 +24,7 @@ public class WireInput : MonoBehaviour
         if (isPlugged)
         {
             otherCol.transform.position = transform.position;
+            otherCol.transform.rotation = transform.rotation;
         }
     }
 }
