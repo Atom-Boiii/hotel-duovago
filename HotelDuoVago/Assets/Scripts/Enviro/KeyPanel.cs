@@ -15,7 +15,7 @@ public class KeyPanel : MonoBehaviour
     {
         isOpen = false;
 
-        startPos = transform.position;
+        startPos = doorPanel.position;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,6 +24,8 @@ public class KeyPanel : MonoBehaviour
         {
             isOpen = true;
             FindObjectOfType<KeySpawner>().isOpen = true;
+
+            StartCoroutine(ClosePanel());
         }
     }
 
@@ -33,5 +35,16 @@ public class KeyPanel : MonoBehaviour
         {
             doorPanel.transform.position = Vector3.Slerp(doorPanel.transform.position, target.position, Time.deltaTime / 3f);
         }
+        else
+        {
+            doorPanel.transform.position = Vector3.Slerp(doorPanel.position, startPos, Time.deltaTime / 3f);
+        }
     }
+    private IEnumerator ClosePanel()
+    {
+        yield return new WaitForSeconds(5f);
+
+        isOpen = false;
+    }
+
 }

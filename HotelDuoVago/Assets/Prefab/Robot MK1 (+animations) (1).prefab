@@ -876,8 +876,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   robotName: Kyle
   robotDialogueText:
-  - Hello, i am Kyle.
-  - Please give me a Key.
+  - Hello there, human.
+  - I need a key for my reservation!
   robotEndQuestDialogueText:
   - Thank you
   nameText: {fileID: 0}
@@ -896,6 +896,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conv: {fileID: 0}
+  names:
+  - Jake Botex
+  - Gary Dual
+  - Mike Array
+  - Johnny Algo
+  - Jack For
 --- !u!114 &8223836420174298031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,7 +916,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   robotCheckPoints: 0
   rotationSpeed: 5
-  speed: 1
+  speed: 1.5
+  move: 0
+  isDone: 0
 --- !u!95 &2197160035071093333
 Animator:
   serializedVersion: 3

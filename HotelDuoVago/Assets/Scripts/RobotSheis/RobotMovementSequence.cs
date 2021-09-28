@@ -52,10 +52,7 @@ public class RobotMovementSequence : MonoBehaviour
             }
         }
 
-        if (move)
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, Time.deltaTime * rotationSpeed);
-        }
+        transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, Time.deltaTime * rotationSpeed);
     }
 
     public void GetNextWaypoint()

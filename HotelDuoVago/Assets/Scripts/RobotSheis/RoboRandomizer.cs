@@ -38,6 +38,8 @@ public class RoboRandomizer : MonoBehaviour
         GameObject rob = Instantiate(robot, rm.checkPoints[0].position, rm.checkPoints[0].rotation);
 
         rob.GetComponent<RobotMovementSequence>().robotCheckPoints = index;
+
+        
     }
 
     // Update is called once per frame

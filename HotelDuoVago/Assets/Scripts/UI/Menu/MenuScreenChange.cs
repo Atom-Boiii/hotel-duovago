@@ -12,7 +12,7 @@ public class MenuScreenChange : MonoBehaviour
 
     public void StartButton()
     {
-        uiInteractor.SetActive(false);
+        //uiInteractor.SetActive(false);
         teleportRay.SetActive(true);
         FindObjectOfType<TeleportSysterm>().canTP = true;
     }

@@ -6,9 +6,18 @@ public class DistanceToPlayer : MonoBehaviour
 {
     public Conversation conv;
 
-    public void StartConversation()
+    public string[] names;
+
+    private void Start()
     {
         conv = gameObject.GetComponent<Conversation>();
+        conv.robotName = names[Random.Range(0, names.Length + 1)];
+    }
+
+    public void StartConversation()
+    {
         FindObjectOfType<ConversationManager>().StartConversation(conv);
+
+        FindObjectOfType<Computer>().CreateReservation(conv.robotName);
     }
 }
