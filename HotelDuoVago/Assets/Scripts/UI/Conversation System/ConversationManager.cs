@@ -22,6 +22,8 @@ public class ConversationManager : MonoBehaviour
         sentences.Clear();
         conversation.canvas.gameObject.SetActive(true);
 
+        FindObjectOfType<KeyGrabber>().Init();
+
         Debug.Log("Starting Conversation With: " + conversation.robotName);
 
         SetupConversation();
@@ -55,7 +57,6 @@ public class ConversationManager : MonoBehaviour
     {
         if (sentences.Count == 0)
         {
-            FindObjectOfType<KeyGrabber>().Init();
             EndConversation();
             return;
         }
