@@ -32,6 +32,12 @@ public class Computer : MonoBehaviour
 
         ReservationItem ri = refrence.GetComponent<ReservationItem>();
 
-        ri.nameText.text = name;
+        int age = Random.Range(20, 70);
+
+        string room = GameObject.Find(name).GetComponent<RobotMovementSequence>().roomNumber;
+
+        int stay = Random.Range(5, 20);
+            
+        ri.Setup(name, age.ToString(), room, stay.ToString());
     }
 }

@@ -10,24 +10,32 @@ public class KeyGrabber : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    public void GrabKey(GameObject other)
+    public void GrabKey(GameObject other, string number)
     {
-        if (other.tag == "key")
+        if(number == GetComponent<RobotMovementSequence>().roomNumber)
+        {
+            if (other.tag == "key")
+            {
+                Destroy(other.gameObject);
+
+                // Start ending convo
+                StartCoroutine(KeyGrabbed());
+            }
+        }
+        else
         {
             Destroy(other.gameObject);
-
-            // Start ending convo
-            StartCoroutine(KeyGrabbed());
+            Debug.Log("Wrong key!");
         }
     }
 
     private IEnumerator KeyGrabbed()
     {
+        GetComponent<RobotMovementSequence>().isActive = false;
+
         yield return new WaitForSeconds(1f);
 
         FindObjectOfType<ConversationManager>().SetupQuestEndConversation();
-
-        
 
         yield return new WaitForSeconds(1f);
 

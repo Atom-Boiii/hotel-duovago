@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KeyPanel : MonoBehaviour
 {
-    private bool isOpen;
+    public bool isOpen;
 
     public Transform target;
     public Transform doorPanel;
@@ -42,7 +42,7 @@ public class KeyPanel : MonoBehaviour
     }
     private IEnumerator ClosePanel()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(15f);
 
         isOpen = false;
     }

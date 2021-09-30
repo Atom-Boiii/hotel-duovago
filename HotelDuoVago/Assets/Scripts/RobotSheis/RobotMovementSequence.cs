@@ -16,8 +16,11 @@ public class RobotMovementSequence : MonoBehaviour
 
     private int wavepointIndex;
 
+    public bool isActive;
 
     RobotMovement rm;
+
+    public string roomNumber;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,8 @@ public class RobotMovementSequence : MonoBehaviour
 
         startTalk = false;
         move = true;
+
+        roomNumber = Random.Range(100, 400).ToString();
     }
 
     // Update is called once per frame
@@ -112,6 +117,8 @@ public class RobotMovementSequence : MonoBehaviour
     private IEnumerator StartConversation()
     {
         yield return new WaitForSeconds(1f);
+
+        isActive = true;
 
         GetComponent<DistanceToPlayer>().StartConversation();
     }
