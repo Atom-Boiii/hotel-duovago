@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StartSpawn : MonoBehaviour
 {
+    public TutorialManager tutorial;
     public bool canSpawn = true;
 
     private void OnTriggerEnter(Collider other)
@@ -12,6 +13,7 @@ public class StartSpawn : MonoBehaviour
         {
             canSpawn = false;
             FindObjectOfType<RoboRandomizer>().SpawnBot();
+            tutorial.DisableTutorial();
         }
     }
 }

@@ -5,13 +5,10 @@ using UnityEngine;
 public class Billboard : MonoBehaviour
 {
     public Transform lookAtThis;
-    public GameObject findRig;
-    public string vrRigName;
 
     public void Start()
     {
-        findRig = Camera.main.gameObject;
-        lookAtThis = findRig.transform;
+        lookAtThis = Camera.main.gameObject.transform;
     }
     void LateUpdate()
     {
