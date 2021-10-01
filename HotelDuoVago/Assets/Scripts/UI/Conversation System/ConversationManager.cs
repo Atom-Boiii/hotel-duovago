@@ -53,6 +53,19 @@ public class ConversationManager : MonoBehaviour
         DisplayNextSentence();
     }
 
+    public void SetupFailConversation()
+    {
+        sentences.Clear();
+        conversation.canvas.gameObject.SetActive(true);
+
+        foreach (string sentence in conversation.robotFailDialogueText)
+        {
+            sentences.Enqueue(sentence);
+        }
+
+        DisplayNextSentence();
+    }
+
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0)

@@ -25,6 +25,7 @@ public class KeyGrabber : MonoBehaviour
         else
         {
             Destroy(other.gameObject);
+            FindObjectOfType<ConversationManager>().SetupFailConversation();
             Debug.Log("Wrong key!");
         }
     }

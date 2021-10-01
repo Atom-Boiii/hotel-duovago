@@ -467,8 +467,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookAtThis: {fileID: 0}
-  findRig: {fileID: 0}
-  vrRigName: VRRig
 --- !u!1 &7346875570459573435
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,6 +878,8 @@ MonoBehaviour:
   - I need a key for my reservation!
   robotEndQuestDialogueText:
   - Thank you
+  robotFailDialogueText:
+  - This is the Wrong Key.
   nameText: {fileID: 0}
   sentenceText: {fileID: 0}
   canvas: {fileID: 0}
@@ -919,6 +919,8 @@ MonoBehaviour:
   speed: 1.5
   move: 0
   isDone: 0
+  isActive: 0
+  roomNumber: 
 --- !u!95 &2197160035071093333
 Animator:
   serializedVersion: 3
