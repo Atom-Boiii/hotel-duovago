@@ -837,7 +837,7 @@ GameObject:
   - component: {fileID: 2197160035071093333}
   - component: {fileID: 3690090684048728300}
   m_Layer: 0
-  m_Name: Robot MK1 (+animations) (1)
+  m_Name: ReservationRobot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -897,11 +897,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conv: {fileID: 0}
   names:
-  - Jake Botex
-  - Gary Dual
-  - Mike Array
-  - Johnny Algo
-  - Jack For
+  - Jake
+  - Gary
+  - Mike
+  - Johnny
+  - Jack
+  - Jack
 --- !u!114 &8223836420174298031
 MonoBehaviour:
   m_ObjectHideFlags: 0

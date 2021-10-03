@@ -120,6 +120,11 @@ public class RobotMovementSequence : MonoBehaviour
 
         isActive = true;
 
+        if (GetComponent<KeyGrabber>())
+        {
+            GetComponent<KeyGrabber>().Init();
+        }
+
         GetComponent<DistanceToPlayer>().StartConversation();
     }
 }

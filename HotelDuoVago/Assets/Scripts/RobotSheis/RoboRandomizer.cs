@@ -6,7 +6,7 @@ public class RoboRandomizer : MonoBehaviour
 {
     public bool runFromStart;
 
-    public GameObject robot;
+    public GameObject[] robots;
 
     private int index;
 
@@ -35,7 +35,9 @@ public class RoboRandomizer : MonoBehaviour
             }
         }
 
-        GameObject rob = Instantiate(robot, rm.checkPoints[0].position, rm.checkPoints[0].rotation);
+        int random = Random.Range(0, 2);
+
+        GameObject rob = Instantiate(robots[random], rm.checkPoints[0].position, rm.checkPoints[0].rotation);
 
         rob.GetComponent<RobotMovementSequence>().robotCheckPoints = index;
 

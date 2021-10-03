@@ -11,7 +11,7 @@ public class DistanceToPlayer : MonoBehaviour
     private void Start()
     {
         conv = gameObject.GetComponent<Conversation>();
-        conv.robotName = names[Random.Range(0, names.Length + 1)];
+        conv.robotName = names[Random.Range(0, names.Length)];
         gameObject.name = conv.robotName;
     }
 
