@@ -16,14 +16,13 @@ public class RoboRandomizer : MonoBehaviour
     {
         if (runFromStart)
         {
-            SpawnBot();
+            SpawnBot(Random.Range(0, robots.Length + 1));
         }
     }
 
     // Start is called before the first frame update
-    public void SpawnBot()
+    public void SpawnBot(int random)
     {
-        index = 0;
 
         RobotMovement[] movements = FindObjectsOfType<RobotMovement>();
 
@@ -34,9 +33,6 @@ public class RoboRandomizer : MonoBehaviour
                 rm = item;
             }
         }
-
-        int random = Random.Range(0, 2);
-
         GameObject rob = Instantiate(robots[random], rm.checkPoints[0].position, rm.checkPoints[0].rotation);
 
         rob.GetComponent<RobotMovementSequence>().robotCheckPoints = index;

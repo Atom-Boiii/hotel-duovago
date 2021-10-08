@@ -12,7 +12,7 @@ public class StartSpawn : MonoBehaviour
         if(other.tag == "Hand" && canSpawn)
         {
             canSpawn = false;
-            FindObjectOfType<RoboRandomizer>().SpawnBot();
+            FindObjectOfType<RoboRandomizer>().SpawnBot(Random.Range(0, FindObjectOfType<RoboRandomizer>().robots.Length + 1));
             tutorial.DisableTutorial();
         }
     }
