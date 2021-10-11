@@ -14,6 +14,7 @@ public class StartSpawn : MonoBehaviour
             canSpawn = false;
             FindObjectOfType<RoboRandomizer>().SpawnBot(Random.Range(0, FindObjectOfType<RoboRandomizer>().robots.Length + 1));
             tutorial.DisableTutorial();
+            tutorial.EnableSecondTutorial();
         }
     }
 }

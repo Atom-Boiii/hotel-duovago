@@ -5,6 +5,7 @@ using UnityEngine;
 public class TutorialManager : MonoBehaviour
 {
     public GameObject tutorial;
+    public GameObject tutorialTwo;
 
     public void EnableTutorial()
     {
@@ -14,5 +15,15 @@ public class TutorialManager : MonoBehaviour
     public void DisableTutorial()
     {
         tutorial.SetActive(false);
+    }
+
+    public void EnableSecondTutorial()
+    {
+        tutorialTwo.SetActive(true);
+    }
+
+    public void DisableSecondTutorial()
+    {
+        tutorialTwo.SetActive(false);
     }
 }

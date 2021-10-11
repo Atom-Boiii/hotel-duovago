@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
 public class IngameMenu : MonoBehaviour
 {
     public GameObject ingameMenu;
 
-    public SettingMenu settingMenu;
-
+    public AudioMixer audioMixer;
     public TextMeshProUGUI textMaster;
     public TextMeshProUGUI textSFX;
     public TextMeshProUGUI textMusic;
     public Slider volumeSliderMaster;
     public Slider volumeSliderSFX;
     public Slider volumeSliderMusic;
+
+    public float volumeBalancer;
 
     //Toggling the Menu.
 
@@ -37,18 +39,43 @@ public class IngameMenu : MonoBehaviour
 
     //Options Menu
 
-    public void SetMasterVolume()
+    public void Awake()
     {
-        settingMenu.SetMasterVolume(volumeSliderMaster.value);
+        textMaster.text = Mathf.Round(PlayerPrefs.GetFloat("Master Volume")) + volumeBalancer + "%";
+        textSFX.text = Mathf.Round(PlayerPrefs.GetFloat("SFX Volume")) + volumeBalancer + "%";
+        textMusic.text = Mathf.Round(PlayerPrefs.GetFloat("Music Volume")) + volumeBalancer + "%";
+        volumeSliderMaster.value = PlayerPrefs.GetFloat("Master Volume");
+        volumeSliderSFX.value = PlayerPrefs.GetFloat("SFX Volume");
+        volumeSliderMusic.value = PlayerPrefs.GetFloat("Music Volume");
     }
 
-    public void SetSFXVolume()
+    public void SetMasterVolume(float volume)
     {
-        settingMenu.SetSFXVolume(volumeSliderSFX.value);
+        audioMixer.SetFloat("Master Volume", volume);
+        textMaster.text = Mathf.Round(volume) + volumeBalancer + "%";
+        volumeSliderMaster.value = volume;
+
+        PlayerPrefs.SetFloat("Master Volume", volume);
+        PlayerPrefs.Save();
     }
 
-    public void SetMusicVolume()
+    public void SetSFXVolume(float volume)
     {
-        settingMenu.SetMusicVolume(volumeSliderMusic.value);
+        audioMixer.SetFloat("SFX Volume", volume);
+        textSFX.text = Mathf.Round(volume) + volumeBalancer + "%";
+        volumeSliderSFX.value = volume;
+
+        PlayerPrefs.SetFloat("SFX Volume", volume);
+        PlayerPrefs.Save();
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        audioMixer.SetFloat("Music Volume", volume);
+        textMusic.text = Mathf.Round(volume) + volumeBalancer + "%";
+        volumeSliderMusic.value = volume;
+
+        PlayerPrefs.SetFloat("Music Volume", volume);
+        PlayerPrefs.Save();
     }
 }
