@@ -5,9 +5,10 @@ using UnityEngine;
 public class PourDetector : MonoBehaviour
 {
     public int pourThreshold;
-    private int pourDegree;
     public bool pourCheck;
     public bool isPouring;
+
+    public GameObject pourParticle;
     
     void Start()
     {
@@ -17,23 +18,38 @@ public class PourDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(pourDegree < pourThreshold)
-        {
-            pourCheck = true;
-        }
-        else
-        {
-            pourCheck = false;
-        }
+        pourCheck = CalculatePourAngle() < pourThreshold;
+        print(CalculatePourAngle());
 
         if(isPouring != pourCheck)
         {
+            isPouring = pourCheck;
 
+            if (isPouring)
+            {
+                StartPour();
+            }
+            else
+            {
+                EndPour();
+            }
         }
     }
 
-    public void CalculatePourAngle()
+    public void StartPour()
     {
-        return;
+        pourParticle.SetActive(true);
     }
+
+    public void EndPour()
+    {
+        pourParticle.SetActive(false);
+    }
+
+    private float CalculatePourAngle()
+    {
+        return transform.up.y * Mathf.Rad2Deg;
+    }
+
+
 }
