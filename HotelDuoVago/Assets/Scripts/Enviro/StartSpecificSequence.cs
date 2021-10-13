@@ -14,7 +14,10 @@ public class StartSpecificSequence : MonoBehaviour
         {
             canSpawn = false;
             FindObjectOfType<RoboRandomizer>().SpawnBot(spawn);
-            tutorial.DisableTutorial();
+            if(tutorial != null)
+            {
+                tutorial.DisableTutorial();
+            }
         }
     }
 }

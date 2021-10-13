@@ -94,6 +94,12 @@ public class RobotMovementSequence : MonoBehaviour
         startTalk = false;
         move = true;
         isDone = true;
+
+        StartSpawn[] bells = FindObjectsOfType<StartSpawn>();
+        for (int i = 0; i < bells.Length; i++)
+        {
+            bells[i].canSpawn = true;
+        }
     }
 
     void EndPath()
