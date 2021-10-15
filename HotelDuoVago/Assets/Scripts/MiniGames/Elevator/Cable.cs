@@ -9,6 +9,8 @@ public class Cable : MonoBehaviour
 
     public LineRenderer line;
 
+    //Makes the Cable follow the Plug
+
     private void Update()
     {
         line.SetPosition(0, transform.position - offset);
