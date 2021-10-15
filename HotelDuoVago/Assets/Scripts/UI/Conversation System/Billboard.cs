@@ -8,7 +8,7 @@ public class Billboard : MonoBehaviour
 
     public void Start()
     {
-        lookAtThis = Camera.main.gameObject.transform;
+        lookAtThis = Camera.main.transform;
     }
     void LateUpdate()
     {
