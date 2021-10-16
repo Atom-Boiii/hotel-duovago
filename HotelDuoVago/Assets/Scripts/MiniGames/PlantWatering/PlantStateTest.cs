@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlantStateTest : MonoBehaviour
 {
-    public void OnTriggerStay(Collider o)
+    private void OnParticleCollision(GameObject other)
     {
-        if(o.gameObject.tag == "Plant")
+        if (other.gameObject.tag == "Plant")
         {
-            o.gameObject.GetComponent<PlantState>().Watering();
+            other.gameObject.GetComponent<PlantState>().Watering();
         }
     }
 }

@@ -24,9 +24,9 @@ public class PlantState : MonoBehaviour
 
     void Start()
     {
-        gameObject.GetComponent<Transform>().localScale = maxSize;
+        gameObject.GetComponent<Transform>().localScale = minimumSize;
         wateredTimer = maxGrowthTimer;
-        maxGrowth = true;
+        maxGrowth = false;
         watered = true;
     }
 
