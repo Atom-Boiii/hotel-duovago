@@ -697,6 +697,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPlug: {fileID: 919132148489905850}
+  isPlugged: 0
+  preventCon: 0
   color: 2
   time: 1
 --- !u!64 &755055478
@@ -1313,6 +1315,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPlug: {fileID: 919132148489905850}
+  isPlugged: 0
+  preventCon: 0
   color: 3
   time: 1
 --- !u!64 &1784003351
@@ -1425,6 +1429,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPlug: {fileID: 919132148489905850}
+  isPlugged: 0
+  preventCon: 0
   color: 4
   time: 1
 --- !u!64 &1814535746
@@ -1833,6 +1839,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPlug: {fileID: 919132148489905850}
+  isPlugged: 0
+  preventCon: 0
   color: 1
   time: 1
 --- !u!64 &2041372875
@@ -2235,7 +2243,7 @@ GameObject:
   - component: {fileID: 3237981416079084185}
   - component: {fileID: 3237981416079084186}
   - component: {fileID: 3237981416079084187}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plug 3
   m_TagString: plug
   m_Icon: {fileID: 0}
@@ -2377,6 +2385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 3
+  isPlugged: 0
 --- !u!23 &3249495214996133403
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2518,7 +2527,7 @@ GameObject:
   - component: {fileID: 4063109367611542400}
   - component: {fileID: 4063109367611542401}
   - component: {fileID: 4063109367611542402}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plug 4
   m_TagString: plug
   m_Icon: {fileID: 0}
@@ -2660,6 +2669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 4
+  isPlugged: 0
 --- !u!1 &4464908765439012942
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,7 +2685,7 @@ GameObject:
   - component: {fileID: 4464908765439012943}
   - component: {fileID: 4464908765439012944}
   - component: {fileID: 4464908765439012945}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plug 2
   m_TagString: plug
   m_Icon: {fileID: 0}
@@ -2817,6 +2827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 2
+  isPlugged: 0
 --- !u!4 &4471805970110040704
 Transform:
   m_ObjectHideFlags: 0
@@ -2976,7 +2987,7 @@ GameObject:
   - component: {fileID: 5566544405110019537}
   - component: {fileID: 5566544405110019538}
   - component: {fileID: 5566544405110019539}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plug 1
   m_TagString: plug
   m_Icon: {fileID: 0}
@@ -3118,6 +3129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 1
+  isPlugged: 0
 --- !u!23 &5609682857805786589
 MeshRenderer:
   m_ObjectHideFlags: 0

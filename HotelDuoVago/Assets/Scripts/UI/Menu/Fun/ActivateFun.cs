@@ -8,6 +8,6 @@ public class ActivateFun : MonoBehaviour
 
     public void ActiveFun()
     {
-        fun.GetComponent<IncreaseFun>().ActivateCoroutine();
+        fun.GetComponent<IncreaseFun>().ActivateFun();
     }
 }

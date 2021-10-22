@@ -6,6 +6,8 @@ public class TutorialManager : MonoBehaviour
 {
     public GameObject tutorial;
     public GameObject tutorialTwo;
+    public GameObject tutorialThree;
+    private bool hasActivated, hasActivatedTwo;
 
     public void EnableTutorial()
     {
@@ -19,11 +21,29 @@ public class TutorialManager : MonoBehaviour
 
     public void EnableSecondTutorial()
     {
-        tutorialTwo.SetActive(true);
+        if (hasActivated == false)
+        {
+            tutorialTwo.SetActive(true);
+            hasActivated = true;
+        }
     }
 
     public void DisableSecondTutorial()
     {
         tutorialTwo.SetActive(false);
+    }
+
+    public void EnableThirdTutorial()
+    {
+        if (hasActivatedTwo == false)
+        {
+            tutorialThree.SetActive(true);
+            hasActivated = false;
+        }
+    }
+
+    public void DisableThirdTutorial()
+    {
+        tutorialThree.SetActive(false);
     }
 }

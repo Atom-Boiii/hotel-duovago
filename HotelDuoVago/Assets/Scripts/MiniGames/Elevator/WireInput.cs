@@ -8,7 +8,7 @@ public class WireInput : MonoBehaviour
 {
     public CheckPlug checkPlug;
 
-    private bool isPlugged, preventCon;
+    public bool isPlugged, preventCon;
 
     private Collider otherCol;
 
@@ -18,8 +18,10 @@ public class WireInput : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "plug" && preventCon == false)
+        if (other.tag == "plug" && preventCon == false && isPlugged == false)
         {
+            StartCoroutine("PreventInstantReconnect");
+
             other.GetComponent<Rigidbody>().isKinematic = true;
 
             isPlugged = true;
@@ -51,8 +53,10 @@ public class WireInput : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "plug" && preventCon == false)
+        if (other.tag == "plug" && other == otherCol && preventCon == false && isPlugged == true)
         {
+            StartCoroutine("PreventInstantReconnect");
+
             isPlugged = false;
 
             if (other.GetComponent<Plug>().color == color)
@@ -61,8 +65,6 @@ public class WireInput : MonoBehaviour
             }
 
             Debug.Log("Color " + other.GetComponent<Plug>().color + " has exit Color " + color);
-
-            StartCoroutine("PreventInstantReconnect");
         }
     }
 

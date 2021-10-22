@@ -5,6 +5,7 @@ using UnityEngine;
 public class Billboard : MonoBehaviour
 {
     public Transform lookAtThis;
+    public Vector3 offset;
 
     public void Start()
     {
@@ -12,6 +13,6 @@ public class Billboard : MonoBehaviour
     }
     void LateUpdate()
     {
-        transform.rotation = Quaternion.LookRotation(transform.position - lookAtThis.position);
+        transform.rotation = Quaternion.LookRotation(transform.position - lookAtThis.position + offset);
     }
 }

@@ -6,17 +6,9 @@ public class IncreaseFun : MonoBehaviour
 {
     public GameObject increaseFun;
     public GameObject glitch;
-    public float glitchTime;
-    public void ActivateCoroutine()
-    {
-        StartCoroutine(Glitch());
-    }
-
-    IEnumerator Glitch()
+    public void ActivateFun()
     {
         increaseFun.SetActive(false);
         glitch.SetActive(true);
-        yield return new WaitForSeconds(glitchTime);
-        glitch.SetActive(false);
     }
 }

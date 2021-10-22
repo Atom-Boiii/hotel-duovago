@@ -7,6 +7,7 @@ public class KeyGrabber : MonoBehaviour
     public void Init()
     {
         GetComponent<Animator>().SetBool("GrabState", true);
+        FindObjectOfType<TutorialManager>().EnableThirdTutorial();
     }
 
     // Start is called before the first frame update
@@ -19,6 +20,7 @@ public class KeyGrabber : MonoBehaviour
                 Destroy(other.gameObject);
 
                 // Start ending convo
+                FindObjectOfType<TutorialManager>().DisableThirdTutorial();
                 StartCoroutine(KeyGrabbed());
             }
         }
