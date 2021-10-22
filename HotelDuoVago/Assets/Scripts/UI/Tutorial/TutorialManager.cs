@@ -38,7 +38,7 @@ public class TutorialManager : MonoBehaviour
         if (hasActivatedTwo == false)
         {
             tutorialThree.SetActive(true);
-            hasActivated = false;
+            hasActivated = true;
         }
     }
 
