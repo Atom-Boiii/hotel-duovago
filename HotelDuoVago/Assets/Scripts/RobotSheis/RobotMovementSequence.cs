@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RobotMovementSequence : MonoBehaviour
 {
+    public Material[] materials;
+    public Renderer render;
+
     public int robotCheckPoints;
     public float rotationSpeed;
 
@@ -41,6 +44,10 @@ public class RobotMovementSequence : MonoBehaviour
         move = true;
 
         roomNumber = Random.Range(100, 400).ToString();
+
+        int sex = Random.Range(0, 2);
+
+        render.material = materials[sex];
     }
 
     // Update is called once per frame

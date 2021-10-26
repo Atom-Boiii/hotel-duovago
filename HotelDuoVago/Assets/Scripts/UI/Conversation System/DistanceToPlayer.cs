@@ -6,13 +6,18 @@ public class DistanceToPlayer : MonoBehaviour
 {
     public Conversation conv;
 
-    public string[] names;
+    public TMPro.TMP_Text id;
+
+    //public string[] names;
 
     private void Start()
     {
+        int number = Random.Range(10, 300);
+
         conv = gameObject.GetComponent<Conversation>();
-        conv.robotName = names[Random.Range(0, names.Length)];
+        conv.robotName = "Robot #" + number.ToString();
         gameObject.name = conv.robotName;
+        id.text = "#" + number.ToString();
     }
 
     public void StartConversation()

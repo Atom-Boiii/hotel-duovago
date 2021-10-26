@@ -16,7 +16,7 @@ public class RoboRandomizer : MonoBehaviour
     {
         if (runFromStart)
         {
-            SpawnBot(Random.Range(0, robots.Length + 1));
+            SpawnBot(Random.Range(0, robots.Length));
         }
     }
 
