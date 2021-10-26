@@ -5,7 +5,7 @@ using UnityEngine;
 public class CheckPlug : MonoBehaviour
 {
     public int plugCount, plugMax, plugInt;
-    public GameObject testText;
+    public GameObject doorSwitch;
 
     public void Start()
     {
@@ -21,7 +21,7 @@ public class CheckPlug : MonoBehaviour
     {
         if (plugCount == plugMax)
         {
-            testText.SetActive(true);
+            doorSwitch.GetComponent<Switch>().minigameWon = true;
 
             Debug.Log("Elevator Minigame Won");
         }
