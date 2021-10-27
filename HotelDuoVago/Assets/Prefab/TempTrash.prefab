@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8860772571610105531}
   - component: {fileID: 8680150735669840043}
   - component: {fileID: 616020018147977413}
+  - component: {fileID: 3180906516942314327}
   m_Layer: 6
   m_Name: TempTrash
   m_TagString: TrashClean
@@ -113,7 +114,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &8680150735669840043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,3 +235,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trashCanEntered: 0
   minusAlpha: 0
+--- !u!114 &3180906516942314327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396430772174497376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a875325e3f5f94a46bae839197e12cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: Trash

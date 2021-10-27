@@ -21,6 +21,7 @@ public class Cleaning : MonoBehaviour
             o.gameObject.GetComponent<Renderer>().material.color -= new Color(0, 0, 0, minusAlpha * Time.deltaTime);
             if (o.gameObject.GetComponent<Renderer>().material.color.a <= 0)
             {
+                FindObjectOfType<TrashSpawner>().Clean(o.GetComponent<TrashIndicator>().type);
                 Destroy(o.gameObject);
                 //add progress to task
             }
@@ -34,6 +35,7 @@ public class Cleaning : MonoBehaviour
             o.gameObject.GetComponent<Renderer>().material.color -= new Color(0, 0, 0, minusAlpha);
             if (o.gameObject.GetComponent<Renderer>().material.color.a <= 0)
             {
+                FindObjectOfType<TrashSpawner>().Clean(o.GetComponent<TrashIndicator>().type);
                 Destroy(o.gameObject);
                 //add progress to task
             }
@@ -41,8 +43,12 @@ public class Cleaning : MonoBehaviour
 
         if (o.gameObject.tag == trashToCleanTag && trashBag == true)
         {
-            o.gameObject.GetComponent<CleaningTrash>().EnteredTrashCan(minusAlpha);
+            //o.gameObject.GetComponent<CleaningTrash>().EnteredTrashCan(minusAlpha);
             //add progress to task
+
+            FindObjectOfType<TrashSpawner>().Clean(o.GetComponent<TrashIndicator>().type);
+
+            Destroy(o.gameObject);
         }
     }
 }

@@ -63,21 +63,13 @@ public class PlantState : MonoBehaviour
                 if(gameObject.GetComponent<Transform>().localScale.x >= maxSize.x)
                 {
                     maxGrowth = true;
+                    FindObjectOfType<TrashSpawner>().Clean("Plant");
                     gameObject.GetComponent<Transform>().localScale = maxSize;
                 }
             }
             if(watered == false)
             {
                     watered = true;
-            }
-        }
-        else if(watered == false && maxShrink == false)
-        {
-            gameObject.GetComponent<Transform>().localScale -= new Vector3(shrinkRate * Time.deltaTime, shrinkRate * Time.deltaTime, shrinkRate * Time.deltaTime);
-            if (gameObject.GetComponent<Transform>().localScale.x <= minimumSize.x)
-            {
-                maxShrink = true;
-                gameObject.GetComponent<Transform>().localScale = minimumSize;
             }
         }
 
