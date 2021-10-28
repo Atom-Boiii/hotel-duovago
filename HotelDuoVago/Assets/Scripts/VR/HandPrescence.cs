@@ -44,7 +44,6 @@ public class HandPrescence : MonoBehaviour
         {
             if (secondaryPressed)
             {
-                FindObjectOfType<TeleportSysterm>().canTP = false;
                 igm.IngameMenuToggle();
             }
         }

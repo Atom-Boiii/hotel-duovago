@@ -6,7 +6,7 @@ public class Switch : MonoBehaviour
 {
     public bool SwitchFlip, minigameWon;
     public GameObject leftDoor, rightDoor;
-    public GameObject testWin, testDoor;
+    public GameObject testWin;
 
     public void flipSwitch()
     {
@@ -16,7 +16,6 @@ public class Switch : MonoBehaviour
 
         if (SwitchFlip == false && minigameWon)
         {
-            testDoor.SetActive(false);
             testWin.SetActive(true);
             Debug.Log("You finished the Minigame");
         }

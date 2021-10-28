@@ -19,7 +19,6 @@ public class Lever : MonoBehaviour
 
     public void IsDown()
     {
-        
         switchScript.flipSwitch();
     }
 }

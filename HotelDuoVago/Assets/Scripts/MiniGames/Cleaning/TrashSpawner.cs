@@ -18,6 +18,8 @@ public class TrashSpawner : MonoBehaviour
     public Transform[] stainSpawn;
     public Transform[] floorTrashSpawn;
 
+    public GameObject finishBell;
+
     public TMP_Text trashText;
 
     int bottles;
@@ -123,6 +125,7 @@ public class TrashSpawner : MonoBehaviour
         if(totalTrash == totalDone)
         {
             trashText.text = " Everything is finished.<br> Head back to the lobby!";
+            finishBell.SetActive(true);
         }
     }
 }
