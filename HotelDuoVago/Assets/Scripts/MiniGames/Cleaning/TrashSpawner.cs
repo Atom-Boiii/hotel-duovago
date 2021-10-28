@@ -30,7 +30,7 @@ public class TrashSpawner : MonoBehaviour
     int trashDone = 0;
     int stainDone = 0;
     int floorTrashDone = 0;
-    int plantDone;
+    int plantDone = 0;
 
     int totalTrash;
     int totalDone;
