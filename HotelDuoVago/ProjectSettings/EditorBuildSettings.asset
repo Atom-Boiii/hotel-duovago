@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/EndScenes/LoadingScene1.unity
     guid: 5bd89a4f4e23927478597b91c85227df
   - enabled: 1
-    path: Assets/Scenes/Personal Scenes/Hidde lobby extra.unity
+    path: Assets/Scenes/EndScenes/LobbyScene.unity
     guid: a9d4a1220e06e374a8b90c57659e1ddb
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: cf98fbc6fa1075c4c8945fc28b20d34c, type: 2}
