@@ -601,6 +601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   igm: {fileID: 0}
   type: 512
+  computer: {fileID: 0}
 --- !u!114 &487070443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,6 +1043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   igm: {fileID: 0}
   type: 256
+  computer: {fileID: 0}
 --- !u!114 &8628589045451665937
 MonoBehaviour:
   m_ObjectHideFlags: 0

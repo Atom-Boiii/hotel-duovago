@@ -13,6 +13,8 @@ public class HandPrescence : MonoBehaviour
 
     private bool rightTrigger, hasGripPressed, hasPrimaryPressed, hasSecondaryPressed;
 
+    public DisableComputer computer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,11 @@ public class HandPrescence : MonoBehaviour
             if (secondaryPressed)
             {
                 igm.IngameMenuToggle();
+
+                if (computer != null)
+                {
+                    computer.DisableComp();
+                }
             }
         }
     }
