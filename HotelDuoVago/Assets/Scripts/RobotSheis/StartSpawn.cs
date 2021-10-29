@@ -6,6 +6,7 @@ public class StartSpawn : MonoBehaviour
 {
     public TutorialManager tutorial;
     public bool canSpawn = true;
+    public AudioSource source;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +16,7 @@ public class StartSpawn : MonoBehaviour
             FindObjectOfType<RoboRandomizer>().SpawnBot(Random.Range(0, FindObjectOfType<RoboRandomizer>().robots.Length));
             tutorial.DisableTutorial();
             tutorial.EnableSecondTutorial();
+            source.Play();
         }
     }
 }
