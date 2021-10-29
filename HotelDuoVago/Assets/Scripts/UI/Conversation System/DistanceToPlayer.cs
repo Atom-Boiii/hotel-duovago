@@ -24,7 +24,17 @@ public class DistanceToPlayer : MonoBehaviour
     {
         FindObjectOfType<ConversationManager>().StartConversation(conv);
 
-        
+
+        if (GetComponent<ComplainBot>())
+        {
+            GetComponent<ComplainBot>().OnFinished();
+        }
+
+        if (GetComponent<ElevatorBot>())
+        {
+            GetComponent<ElevatorBot>().OnFinished();
+        }
+
         FindObjectOfType<Computer>().CreateReservation(conv.robotName);
     }
 }
